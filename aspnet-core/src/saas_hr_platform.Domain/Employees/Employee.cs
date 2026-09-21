@@ -41,7 +41,7 @@ public class Employee : FullAuditedAggregateRootTenant<Guid>
         if (String.IsNullOrEmpty(firstName))
             throw new BusinessException(saas_hr_platformDomainErrorCodes.Employee.InvalidFirstName);
 
-        FirstName = firstName.Trim().ToLower();
+        FirstName = firstName.Trim();
     }
 
     public void SetLastName(string lastName)
@@ -49,7 +49,7 @@ public class Employee : FullAuditedAggregateRootTenant<Guid>
         if (String.IsNullOrEmpty(lastName))
             throw new BusinessException(saas_hr_platformDomainErrorCodes.Employee.InvalidLastName);
 
-        LastName = lastName.Trim().ToLower();
+        LastName = lastName.Trim();
     }
 
     public void SetEmail(string email)
@@ -57,7 +57,7 @@ public class Employee : FullAuditedAggregateRootTenant<Guid>
         if (String.IsNullOrEmpty(email))
             throw new BusinessException(saas_hr_platformDomainErrorCodes.Employee.InvalidEmail);
 
-        Email = email.Trim().ToLower();
+        Email = email.Trim();
     }
 
     public void SetJobTitle(string jobTitle)
@@ -65,7 +65,7 @@ public class Employee : FullAuditedAggregateRootTenant<Guid>
         if (String.IsNullOrEmpty(jobTitle))
             throw new BusinessException(saas_hr_platformDomainErrorCodes.Employee.InvalidJobTitle);
 
-        JobTitle = jobTitle.Trim().ToLower();
+        JobTitle = jobTitle.Trim();
     }
 
     public void SetHireDate(DateTime hireDate)
