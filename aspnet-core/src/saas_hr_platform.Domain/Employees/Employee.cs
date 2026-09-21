@@ -16,12 +16,32 @@ public class Employee : FullAuditedAggregateRootTenant<Guid>
     public Guid DepartmentId { get; private set; }
     public Department Department { get; private set; } = null!;
 
-    public void SetName(string firstName)
+    protected Employee() {}
+
+    internal Employee(
+        string firstName,
+        string lastName,
+        string email,
+        string jobTitle,
+        DateTime hireDate,
+        EmployeeStatus status,
+        Department department)
+    {
+        SetFirstName(firstName);
+        SetLastName(lastName);
+        SetEmail(email);
+        SetJobTitle(jobTitle);
+        SetHireDate(hireDate);
+        SetStatus(status);
+        SetDepartment(department);
+    }
+
+    public void SetFirstName(string firstName)
     {
         if (String.IsNullOrEmpty(firstName))
             throw new BusinessException(saas_hr_platformDomainErrorCodes.Employee.InvalidFirstName);
 
-        FirstName = firstName;
+        FirstName = firstName.Trim().ToLower();
     }
 
     public void SetLastName(string lastName)
@@ -29,7 +49,7 @@ public class Employee : FullAuditedAggregateRootTenant<Guid>
         if (String.IsNullOrEmpty(lastName))
             throw new BusinessException(saas_hr_platformDomainErrorCodes.Employee.InvalidLastName);
 
-        LastName = lastName;
+        LastName = lastName.Trim().ToLower();
     }
 
     public void SetEmail(string email)
@@ -37,7 +57,7 @@ public class Employee : FullAuditedAggregateRootTenant<Guid>
         if (String.IsNullOrEmpty(email))
             throw new BusinessException(saas_hr_platformDomainErrorCodes.Employee.InvalidEmail);
 
-        Email = email;
+        Email = email.Trim().ToLower();
     }
 
     public void SetJobTitle(string jobTitle)
@@ -45,7 +65,7 @@ public class Employee : FullAuditedAggregateRootTenant<Guid>
         if (String.IsNullOrEmpty(jobTitle))
             throw new BusinessException(saas_hr_platformDomainErrorCodes.Employee.InvalidJobTitle);
 
-        JobTitle = jobTitle;
+        JobTitle = jobTitle.Trim().ToLower();
     }
 
     public void SetHireDate(DateTime hireDate)
@@ -58,12 +78,12 @@ public class Employee : FullAuditedAggregateRootTenant<Guid>
 
     public void SetStatus(EmployeeStatus status) => Status = status;
 
-    public void SetDepartment(Guid departmentId, Department department)
+    public void SetDepartment(Department department)
     {
-        if(department is null)
+        if(department is null || department.Id == Guid.Empty)
             throw new BusinessException(saas_hr_platformDomainErrorCodes.Employee.InvalidDepartment);
 
-        DepartmentId = departmentId;
+        DepartmentId = department.Id;
         Department = department;
     }
 }
