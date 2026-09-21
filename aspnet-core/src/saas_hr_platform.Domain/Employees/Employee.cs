@@ -68,13 +68,7 @@ public class Employee : FullAuditedAggregateRootTenant<Guid>
         JobTitle = jobTitle.Trim().ToLower();
     }
 
-    public void SetHireDate(DateTime hireDate)
-    {
-        if (hireDate < DateTime.Now)
-            throw new BusinessException(saas_hr_platformDomainErrorCodes.Employee.InvalidHireDate);
-
-        HireDate = hireDate;
-    }
+    public void SetHireDate(DateTime hireDate) => HireDate = hireDate;
 
     public void SetStatus(EmployeeStatus status) => Status = status;
 
