@@ -40,7 +40,7 @@ public class Department : FullAuditedAggregateRootTenant<Guid>
 
     public void SetEmployees(ICollection<Employee> employees)
     {
-        if(employees.Count == 0)
+        if(employees is null)
             throw new BusinessException(saas_hr_platformDomainErrorCodes.Department.EmptyEmployees);
 
         Employees = employees;
