@@ -16,12 +16,10 @@ public class Department : FullAuditedAggregateRootTenant<Guid>
 
     internal Department(
         string name,
-        string description,
-        ICollection<Employee> employees)
+        string description)
     {
         SetName(name);
         SetDescription(description);
-        SetEmployees(employees);
     }
 
     public void SetName(string name)
@@ -35,14 +33,5 @@ public class Department : FullAuditedAggregateRootTenant<Guid>
     public void SetDescription(string? description)
     {
         Description = description?.Trim().ToLower();
-    }
-
-
-    public void SetEmployees(ICollection<Employee> employees)
-    {
-        if(employees is null)
-            throw new BusinessException(saas_hr_platformDomainErrorCodes.Department.EmptyEmployees);
-
-        Employees = employees;
     }
 }
