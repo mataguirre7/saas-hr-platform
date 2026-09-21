@@ -57,6 +57,7 @@ public class saas_hr_platformDbContext :
     #endregion
 
     public DbSet<Department> Departments { get; set; }
+    public DbSet<Employee> Employees { get; set; }
 
     public saas_hr_platformDbContext(DbContextOptions<saas_hr_platformDbContext> options)
         : base(options)
