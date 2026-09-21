@@ -90,23 +90,75 @@ public class saas_hr_platformDbContext :
 
         builder.Entity<Department>(b =>
         {
-            b.ToTable(saas_hr_platformConsts.DbTablePrefix + "Departments", saas_hr_platformConsts.DbSchema);
+            b.ToTable("departments", saas_hr_platformConsts.DbSchema);
             b.ConfigureByConvention();
-            b.Property(p => p.Name).IsRequired().HasMaxLength(128);
-            b.Property(p => p.Description).IsRequired(false);
+            b.Property(p => p.Id).HasColumnName("id");
+            b.Property(p => p.Name).IsRequired().HasMaxLength(128).HasColumnName("name");
+            b.Property(p => p.Description).IsRequired(false).HasColumnName("description");
+            b.Property(p => p.ExtraProperties).IsRequired().HasColumnName("extra_properties");
+            b.Property(p => p.ConcurrencyStamp).IsRequired().HasColumnName("concurrency_stamp");
+            b.Property(p => p.CreationTime).IsRequired().HasColumnName("creation_time");
+            b.Property(p => p.CreatorId).HasColumnName("creator_id");
+            b.Property(p => p.LastModificationTime).HasColumnName("last_modification_time");
+            b.Property(p => p.LastModifierId).HasColumnName("last_modifier_id");
+            b.Property(p => p.IsDeleted).IsRequired().HasColumnName("is_deleted");
+            b.Property(p => p.DeleterId).HasColumnName("deleter_id");
+            b.Property(p => p.DeletionTime).HasColumnName("deletion_time");
+            b.Property(p => p.TenantId).HasColumnName("tenant_id");
             b.HasMany(p => p.Employees).WithOne(p => p.Department).HasForeignKey(p => p.DepartmentId).IsRequired();
         });
 
         builder.Entity<Employee>(b =>
         {
-           b.ToTable(saas_hr_platformConsts.DbTablePrefix + "Employees", saas_hr_platformConsts.DbSchema);
-           b.ConfigureByConvention();
-           b.Property(p => p.FirstName).IsRequired();
-           b.Property(p => p.LastName).IsRequired();
-           b.Property(p => p.Email).IsRequired();
-           b.Property(p => p.JobTitle).IsRequired();
-           b.Property(p => p.HireDate).IsRequired();
-           b.Property(p => p.Status).IsRequired();
+            b.ToTable("employees", saas_hr_platformConsts.DbSchema);
+            b.ConfigureByConvention();
+            b.Property(p => p.Id)
+                .HasColumnName("id");
+            b.Property(p => p.FirstName)
+                .IsRequired()
+                .HasColumnName("first_name");
+            b.Property(p => p.LastName)
+                .IsRequired()
+                .HasColumnName("last_name");
+            b.Property(p => p.Email)
+                .IsRequired()
+                .HasColumnName("email");
+            b.Property(p => p.JobTitle)
+                .IsRequired()
+                .HasColumnName("job_title");
+            b.Property(p => p.HireDate)
+                .IsRequired()
+                .HasColumnName("hire_date");
+            b.Property(p => p.Status)
+                .IsRequired()
+                .HasColumnName("status");
+            b.Property(p => p.DepartmentId)
+                .IsRequired()
+                .HasColumnName("department_id");
+            b.Property(p => p.ExtraProperties)
+                .IsRequired()
+                .HasColumnName("extra_properties");
+            b.Property(p => p.ConcurrencyStamp)
+                .IsRequired()
+                .HasColumnName("concurrency_stamp");
+            b.Property(p => p.CreationTime)
+                .IsRequired()
+                .HasColumnName("creation_time");
+            b.Property(p => p.CreatorId)
+                .HasColumnName("creator_id");
+            b.Property(p => p.LastModificationTime)
+                .HasColumnName("last_modification_time");
+            b.Property(p => p.LastModifierId)
+                .HasColumnName("last_modifier_id");
+            b.Property(p => p.IsDeleted)
+                .IsRequired()
+                .HasColumnName("is_deleted");
+            b.Property(p => p.DeleterId)
+                .HasColumnName("deleter_id");
+            b.Property(p => p.DeletionTime)
+                .HasColumnName("deletion_time");
+            b.Property(p => p.TenantId)
+                .HasColumnName("tenant_id");
         });
     }
 }
