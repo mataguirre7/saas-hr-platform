@@ -2,5 +2,18 @@
 
 public static class saas_hr_platformDomainErrorCodes
 {
-    /* You can add your business exception error codes here, as constants */
+    private const string _prefix = "SaasHrPlatform:";
+
+    public static class Employee
+    {
+        private const string _entity = _prefix + "Employee.";
+
+        public const string InvalidFirstName = _entity + "InvalidFirstName";
+        public const string InvalidLastName = _entity + "InvalidLastName";
+        public const string InvalidHireDate = _entity + "InvalidHireDate";
+        public const string InvalidEmail = _entity + "InvalidEmail";
+        public const string InvalidJobTitle = _entity + "InvalidJobTitle";
+        public const string InvalidDepartment = _entity + "InvalidDepartment";
+
+    }
 }

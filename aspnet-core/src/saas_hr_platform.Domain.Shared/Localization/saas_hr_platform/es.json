@@ -4,6 +4,12 @@
     "AppName": "saas_hr_platform",
     "Menu:Home": "Inicio",
     "Welcome": "Bienvenido",
-    "LongWelcomeMessage": "Bienvenido a la aplicación, este es un proyecto base basado en el framework ABP. Para más información, visita abp.io."
-  }
+    "LongWelcomeMessage": "Bienvenido a la aplicación, este es un proyecto base basado en el framework ABP. Para más información, visita abp.io.", 
+    "SaasHrPlatform:Employee.InvalidFirstName": "El nombre tiene un formato incorrecto",
+    "SaasHrPlatform:Employee.InvalidLastName": "El apellido tiene un formato incorrecto",
+    "SaasHrPlatform:Employee.InvalidEmail": "El email tiene un formato incorrecto",
+    "SaasHrPlatform:Employee.InvalidHireDate": "La fecha de contratación tiene un formato incorrecto",
+    "SaasHrPlatform:Employee.InvalidJobTitle": "El título del trabajo tiene un formato incorrecto",
+    "SaasHrPlatform:Employee.InvalidDepartment": "Es obligatoria la asignación del departamente asociado"
+  } 
 }

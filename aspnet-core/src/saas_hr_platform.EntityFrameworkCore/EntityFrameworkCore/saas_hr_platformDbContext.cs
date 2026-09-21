@@ -1,9 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using saas_hr_platform.Departments;
+using saas_hr_platform.Employees;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.EntityFrameworkCore;
@@ -53,6 +56,8 @@ public class saas_hr_platformDbContext :
 
     #endregion
 
+    public DbSet<Department> Departments { get; set; }
+
     public saas_hr_platformDbContext(DbContextOptions<saas_hr_platformDbContext> options)
         : base(options)
     {
@@ -82,5 +87,26 @@ public class saas_hr_platformDbContext :
         //    b.ConfigureByConvention(); //auto configure for the base class props
         //    //...
         //});
+
+        builder.Entity<Department>(b =>
+        {
+            b.ToTable(saas_hr_platformConsts.DbTablePrefix + "Departments", saas_hr_platformConsts.DbSchema);
+            b.ConfigureByConvention();
+            b.Property(p => p.Name).IsRequired().HasMaxLength(128);
+            b.Property(p => p.Description).IsRequired(false);
+            b.HasMany(p => p.Employees).WithOne(p => p.Department).HasForeignKey(p => p.DepartmentId).IsRequired();
+        });
+
+        builder.Entity<Employee>(b =>
+        {
+           b.ToTable(saas_hr_platformConsts.DbTablePrefix + "Employees", saas_hr_platformConsts.DbSchema);
+           b.ConfigureByConvention();
+           b.Property(p => p.FirstName).IsRequired();
+           b.Property(p => p.LastName).IsRequired();
+           b.Property(p => p.Email).IsRequired();
+           b.Property(p => p.JobTitle).IsRequired();
+           b.Property(p => p.HireDate).IsRequired();
+           b.Property(p => p.Status).IsRequired();
+        });
     }
 }
