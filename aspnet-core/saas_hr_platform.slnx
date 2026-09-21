@@ -1,0 +1,35 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/saas_hr_platform.Application.Contracts/saas_hr_platform.Application.Contracts.csproj" />
+    <Project Path="src/saas_hr_platform.Application/saas_hr_platform.Application.csproj" />
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Project Path="src/saas_hr_platform.DbMigrator/saas_hr_platform.DbMigrator.csproj" />
+    <Project Path="src/saas_hr_platform.Domain.Shared/saas_hr_platform.Domain.Shared.csproj" />
+    <Project Path="src/saas_hr_platform.Domain/saas_hr_platform.Domain.csproj" />
+    <Project Path="src/saas_hr_platform.EntityFrameworkCore/saas_hr_platform.EntityFrameworkCore.csproj" />
+    <Project Path="src/saas_hr_platform.HttpApi.Client/saas_hr_platform.HttpApi.Client.csproj" />
+    
+    <Project Path="src/saas_hr_platform.HttpApi.Host/saas_hr_platform.HttpApi.Host.csproj" />
+    <Project Path="src/saas_hr_platform.HttpApi/saas_hr_platform.HttpApi.csproj" />
+    
+    
+    
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/saas_hr_platform.Application.Tests/saas_hr_platform.Application.Tests.csproj" />
+    <Project Path="test/saas_hr_platform.Domain.Tests/saas_hr_platform.Domain.Tests.csproj" />
+    <Project Path="test/saas_hr_platform.EntityFrameworkCore.Tests/saas_hr_platform.EntityFrameworkCore.Tests.csproj" />
+    <Project Path="test/saas_hr_platform.HttpApi.Client.ConsoleTestApp/saas_hr_platform.HttpApi.Client.ConsoleTestApp.csproj" />
+    
+    <Project Path="test/saas_hr_platform.TestBase/saas_hr_platform.TestBase.csproj" />
+    
+  </Folder>
+</Solution>
