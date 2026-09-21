@@ -27,11 +27,11 @@ public class Department : FullAuditedAggregateRootTenant<Guid>
         if (String.IsNullOrEmpty(name))
             throw new BusinessException(saas_hr_platformDomainErrorCodes.Department.InvalidName);
 
-        Name = name.Trim().ToLower();
+        Name = name.Trim();
     }
 
     public void SetDescription(string? description)
     {
-        Description = description?.Trim().ToLower();
+        Description = description?.Trim();
     }
 }
