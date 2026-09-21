@@ -12,6 +12,7 @@ public static class saas_hr_platformDomainErrorCodes
         public const string InvalidLastName = _entity + "InvalidLastName";
         public const string InvalidHireDate = _entity + "InvalidHireDate";
         public const string InvalidEmail = _entity + "InvalidEmail";
+        public const string DuplicateEmail = _entity + "DuplicateEmail";
         public const string InvalidJobTitle = _entity + "InvalidJobTitle";
         public const string InvalidDepartment = _entity + "InvalidDepartment";
     }
@@ -20,8 +21,8 @@ public static class saas_hr_platformDomainErrorCodes
     {
         private const string _entity = _prefix + "Department.";
 
-        public const string EmptyEmployees = _entity + "EmptyEmployees";
         public const string InvalidName = _entity + "InvalidName";
         public const string InvalidDescription = _entity + "InvalidDescription";
+        public const string DuplicateName = _entity + "DuplicateName";
     }
 }
