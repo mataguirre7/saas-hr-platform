@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using saas_hr_platform.MultiTenancy;
 using Volo.Abp.AuditLogging;
@@ -64,5 +65,18 @@ public class saas_hr_platformDomainModule : AbpModule
 #if DEBUG
         context.Services.Replace(ServiceDescriptor.Singleton<IEmailSender, NullEmailSender>());
 #endif
+    }
+
+    public override void PreConfigureServices(ServiceConfigurationContext context)
+    {
+        var configuration = context.Services.GetConfiguration();
+
+        if(configuration.GetValue<bool>("App:DisableHttpsRequirement"))
+        {
+            PreConfigure<OpenIddictServerBuilder>(builder =>
+            {
+                builder.UseAspNetCore().DisableTransportSecurityRequirement();
+            });
+        }
     }
 }
