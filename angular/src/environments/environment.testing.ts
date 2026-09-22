@@ -10,16 +10,17 @@ export const environment = {
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'https://localhost:44345/',
+    issuer: baseUrl,
     redirectUri: baseUrl,
     postLogoutRedirectUri: baseUrl,
     clientId: 'saas_hr_platform_App',
+    responseType: 'code',
     scope: 'offline_access saas_hr_platform',
     requireHttps: false,
   },
   apis: {
     default: {
-      url: 'https://localhost:44345',
+      url: '',
       rootNamespace: 'saas_hr_platform',
     },
   },

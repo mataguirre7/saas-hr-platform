@@ -15,6 +15,7 @@ export const environment = {
     postLogoutRedirectUri: baseUrl,
     clientId: 'saas_hr_platform_App',
     scope: 'offline_access saas_hr_platform',
+    responseType: 'code',
     requireHttps: true
   },
   apis: {
