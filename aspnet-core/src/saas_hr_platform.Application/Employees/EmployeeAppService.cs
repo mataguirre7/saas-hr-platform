@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
+using Volo.Abp.EventBus.Local;
 
 namespace saas_hr_platform.Employees;
 
 public class EmployeeAppService : saas_hr_platformAppService, IEmployeeAppService
 {
+    private readonly ILocalEventBus _localEventBus;
     private readonly IEmployeeRepository _employeeRepository;
     private readonly IDepartmentRepository _departmentRepository;
     private readonly EmployeeManager _employeeManager;
@@ -16,12 +18,14 @@ public class EmployeeAppService : saas_hr_platformAppService, IEmployeeAppServic
     public EmployeeAppService(
         IEmployeeRepository employeeRepository,
         EmployeeManager employeeManager,
-        IDepartmentRepository departmentRepository
+        IDepartmentRepository departmentRepository,
+        ILocalEventBus localEventBus
         )
     {
         _employeeRepository = employeeRepository;
         _employeeManager = employeeManager;
         _departmentRepository = departmentRepository;
+        _localEventBus = localEventBus;
     }
 
     public async Task<PagedResultDto<EmployeeDto>> GetListAsync(PagedAndSortedResultRequestDto input)
@@ -61,6 +65,11 @@ public class EmployeeAppService : saas_hr_platformAppService, IEmployeeAppServic
             department);
 
         await _employeeRepository.InsertAsync(employee);
+
+        // event bus publish, handle event reacts
+        await _localEventBus.PublishAsync(
+            new EmployeeCreatedEto(employee.Id, employee.FirstName, employee.LastName, employee.Email, employee.DepartmentId));
+
         return ObjectMapper.Map<Employee, EmployeeDto>(employee);
     }
 
