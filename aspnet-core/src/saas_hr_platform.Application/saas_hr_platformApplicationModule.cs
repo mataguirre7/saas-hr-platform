@@ -1,12 +1,15 @@
-﻿using Volo.Abp.Account;
-using Volo.Abp.Mapperly;
+﻿using Microsoft.Extensions.DependencyInjection;
+using saas_hr_platform.Workers;
+using System.Threading.Tasks;
+using Volo.Abp;
+using Volo.Abp.Account;
+using Volo.Abp.BackgroundWorkers;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace saas_hr_platform;
 
@@ -25,5 +28,10 @@ public class saas_hr_platformApplicationModule : AbpModule
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         context.Services.AddMapperlyObjectMapper<saas_hr_platformApplicationModule>();
+    }
+
+    public override async Task OnApplicationInitializationAsync(ApplicationInitializationContext context)
+    {
+        await context.AddBackgroundWorkerAsync<EmployeeSummaryReportWorker>();
     }
 }
