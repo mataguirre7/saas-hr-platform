@@ -10,7 +10,7 @@ export const environment = {
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: baseUrl,
+    issuer: baseUrl + '/',
     redirectUri: baseUrl,
     postLogoutRedirectUri: baseUrl,
     clientId: 'saas_hr_platform_App',
