@@ -18,7 +18,7 @@ public class EmployeeCreatedEventHandler :
     public Task HandleEventAsync(EmployeeCreatedEto eventData)
     {
         _logger.LogInformation(
-            "Handle event for employee created eto, data: {FirstName} {LastName} ({Email})" +
+            "[EVENT] Handle event for employee created eto, data: {FirstName} {LastName} ({Email})" +
             " - Department: {DepartmentId}",
         eventData.FirstName,
         eventData.LastName,

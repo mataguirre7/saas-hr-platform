@@ -38,12 +38,12 @@ public class EmployeeSummaryReportWorker : AsyncPeriodicBackgroundWorkerBase
             ActiveEmployeeCount = g.Count()
         });
 
-        logger.LogInformation("=== Daily Active Employees Report ===");
+        logger.LogInformation("[REPORT] Daily Active Employees Report ===");
 
         foreach(var item in summary)
         {
             logger.LogInformation(
-                "{DepartmentName}: {ActiveEmployeeCount} active employee(s)",
+                "[MESSAGE] {DepartmentName}: {ActiveEmployeeCount} active employee(s)",
                 item.DepartmentName,
                 item.ActiveEmployeeCount);
         }
