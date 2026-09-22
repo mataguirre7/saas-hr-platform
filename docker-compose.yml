@@ -16,7 +16,7 @@ services:
       context: ./aspnet-core
       dockerfile: src/saas_hr_platform.DbMigrator/Dockerfile
     environment:
-      ConnectionStrings__Default: "Host=db;Port=5432;Database=saas-hr-platform;UserId=postgres;Password=123qwe"
+      ConnectionStrings__Default: "Host=db;Port=5432;Database=saas-hr-platform;User Id=postgres;Password=123qwe"
     depends_on:
       - db
 
@@ -25,10 +25,10 @@ services:
       context: ./aspnet-core
       dockerfile: src/saas_hr_platform.HttpApi.Host/Dockerfile
     environment:
-      ConnectionStrings__Default: "Host=db;Port=5432;Database=saas-hr-platform;UserId=postgres;Password=123qwe"
+      ConnectionStrings__Default: "Host=db;Port=5432;Database=saas-hr-platform;User Id=postgres;Password=123qwe"
       App__SelfUrl: "http://localhost:4200"
       App__ClientUrl: "http://localhost:4200"
-      App__CorsOrigin: "http://localhost:4200"
+      App__CorsOrigins: "http://localhost:4200"
     ports:
       - "8080:8080"
     depends_on:
