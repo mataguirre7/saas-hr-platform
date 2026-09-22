@@ -8,3 +8,40 @@ services:
       POSTGRES_PASSWORD: 123qwe
       POSTGRES_USER: postgres
       POSTGRES_DB: saas-hr-platform
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  migrator:
+    build:
+      context: ./aspnet-core
+      dockerfile: src/saas_hr_platform.DbMigrator/Dockerfile
+    environment:
+      ConnectionStrings__Default: "Host=db;Port=5432;Database=saas-hr-platform;UserId=postgres;Password=123qwe"
+    depends_on:
+      - db
+
+  backend:
+    build:
+      context: ./aspnet-core
+      dockerfile: src/saas_hr_platform.HttpApi.Host/Dockerfile
+    environment:
+      ConnectionStrings__Default: "Host=db;Port=5432;Database=saas-hr-platform;UserId=postgres;Password=123qwe"
+      App__SelfUrl: "http://localhost:4200"
+      App__ClientUrl: "http://localhost:4200"
+      App__CorsOrigin: "http://localhost:4200"
+    ports:
+      - "8080:8080"
+    depends_on:
+      migrator:
+        condition: service_completed_successfully
+
+  frontend:
+    build:
+      context: ./angular
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+
+volumes:
+  db_data:
