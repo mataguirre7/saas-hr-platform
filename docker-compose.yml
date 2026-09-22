@@ -38,6 +38,8 @@ services:
   frontend:
     build:
       context: ./angular
+      args:
+        BUILD_CONFIGURATION: testing
     ports:
       - "4200:80"
     depends_on:
