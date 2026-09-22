@@ -14,6 +14,7 @@
     "SaasHrPlatform:Employee.InvalidDepartment": "Es obligatorio asignar un departamento al empleado.",
     "SaasHrPlatform:Employee.NotFound": "No se encontró el empleado solicitado.",
     "SaasHrPlatform:Employee.DuplicateName": "Ya existe un empleado con el mismo nombre y apellido.",
+    "SaasHrPlatform:Employee.DuplicateEmail": "Ya existe un empleado con el mismo correo.",
 
     "SaasHrPlatform:Department.InvalidName": "El nombre ingresado no es válido.",
     "SaasHrPlatform:Department.InvalidDescription": "La descripción ingresada no es válida.",

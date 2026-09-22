@@ -15,6 +15,7 @@ public static class saas_hr_platformDomainErrorCodes
         public const string DuplicateEmail = _entity + "DuplicateEmail";
         public const string InvalidJobTitle = _entity + "InvalidJobTitle";
         public const string InvalidDepartment = _entity + "InvalidDepartment";
+        public const string NotFound = _entity + "NotFound";
     }
 
     public static class Department
