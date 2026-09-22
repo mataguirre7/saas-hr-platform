@@ -27,6 +27,10 @@ export const appRoutes: Routes = [
   {
     path: 'departments',
     loadChildren: () =>
-      import("./departments/departments.route.ts.component").then(m => m.departmentsRoutes)
-  }
+      import("./departments/departments.routes").then(m => m.departmentsRoutes)
+  },
+  {
+    path: 'employees',
+    loadChildren: () => import('./employees/employees.routes').then(m => m.employeesRoutes),
+  },
 ];

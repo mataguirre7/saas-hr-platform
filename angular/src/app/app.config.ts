@@ -20,6 +20,7 @@ import { provideTenantManagementConfig } from '@abp/ng.tenant-management/config'
 import { provideFeatureManagementConfig } from '@abp/ng.feature-management';
 import { provideThemeLeptonX } from '@abp/ng.theme.lepton-x';
 import { provideSideMenuLayout } from '@abp/ng.theme.lepton-x/layouts';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -45,5 +46,6 @@ export const appConfig: ApplicationConfig = {
         wrongPassword: 'Please choose 1q2w3E*',
       }),
     ),
+    provideAnimationsAsync()
   ],
 };

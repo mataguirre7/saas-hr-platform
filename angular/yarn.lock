@@ -4830,6 +4830,11 @@ prelude-ls@^1.2.1:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
+primeicons@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/primeicons/-/primeicons-8.0.1.tgz#312c1d614ad1d01e68db6ccd12b06ea88ad59896"
+  integrity sha512-5O1zIpEKUk0pKfEQSdNVJRxPivo0271zAe7vnZGl+fughxixv4PnVou2J6pPy2wy83nrDn58BqeBwWnpCZmjkw==
+
 primeng@17:
   version "17.18.15"
   resolved "https://registry.yarnpkg.com/primeng/-/primeng-17.18.15.tgz#073a3ebc2336727aa784bcf81c9dcad8639ac328"

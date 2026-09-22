@@ -21,7 +21,14 @@ function configureRoutes(routesService: RoutesService) {
         iconClass: "fas fa-building",
         order: 2,
         layout: eLayoutType.application
-      }
+      },
+      {
+        path: '/employees',
+        name: 'Employees',
+        iconClass: 'fas fa-users',
+        order: 3,
+        layout: eLayoutType.application,
+      },
     ]);
   };
 }

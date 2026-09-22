@@ -1,7 +1,12 @@
-<div class="p-3">
-  <h3>Departments</h3>
+<p-confirmDialog />
 
-  @if(isLoading()) {
+<div class="p-3">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Departments</h3>
+    <p-button label="New Department" icon="pi pi-plus" (onClick)="openCreate()" />
+  </div>
+
+  @if (isLoading()) {
     <p>Loading...</p>
   } @else {
     <table class="table">
@@ -9,16 +14,27 @@
         <tr>
           <th>Name</th>
           <th>Description</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         @for (department of departments(); track department.id) {
           <tr>
-            <td>{{department.name}}</td>
-            <td>{{department.description}}</td>
+            <td>{{ department.name }}</td>
+            <td>{{ department.description }}</td>
+            <td class="text-end">
+              <p-button icon="pi pi-pencil" severity="secondary" [text]="true" (onClick)="openEdit(department)" />
+              <p-button icon="pi pi-trash" severity="danger" [text]="true" (onClick)="confirmDelete(department)" />
+            </td>
           </tr>
         }
       </tbody>
     </table>
   }
 </div>
+
+<app-department-form
+  [(visible)]="formVisible"
+  [department]="selectedDepartment"
+  (saved)="onSaved()"
+/>
