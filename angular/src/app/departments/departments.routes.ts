@@ -5,6 +5,6 @@ export const departmentsRoutes: Routes = [
     path: "",
     pathMatch: "full",
     loadComponent: () =>
-      import("./department-list/department-list/department-list.component").then(m => m.DepartmentListComponent)
+      import("./department-list/department-list.component").then(m => m.DepartmentListComponent)
   }
 ]

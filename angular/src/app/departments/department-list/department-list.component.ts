@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
-import { DepartmentFormComponent } from '../../department-form/department-form.component';
+import { DepartmentFormComponent } from '../department-form/department-form.component';
 import { DepartmentService } from '@proxy';
 import { DepartmentDto } from '@proxy/departments';
 
