@@ -6,9 +6,9 @@ namespace saas_hr_platform.Employees;
 public class EmployeeCreatedEto
 {
     public Guid Id { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string Email { get; set; }
+    public string FirstName { get; set; } = null!;
+    public string LastName { get; set; } = null!;
+    public string Email { get; set; } = null!;
     public Guid DepartmentId { get; set; }
 
     protected EmployeeCreatedEto() {}
