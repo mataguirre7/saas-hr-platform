@@ -24,4 +24,9 @@ export const appRoutes: Routes = [
     loadChildren: () =>
       import('@abp/ng.setting-management').then(m => m.createRoutes()),
   },
+  {
+    path: 'departments',
+    loadChildren: () =>
+      import("./departments/departments.route.ts.component").then(m => m.departmentsRoutes)
+  }
 ];

@@ -1,0 +1,24 @@
+<div class="p-3">
+  <h3>Departments</h3>
+
+  @if(isLoading()) {
+    <p>Loading...</p>
+  } @else {
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (department of departments(); track department.id) {
+          <tr>
+            <td>{{department.name}}</td>
+            <td>{{department.description}}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>
