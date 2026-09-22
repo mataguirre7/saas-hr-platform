@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Volo.Abp.Application.Dtos;
 
 namespace saas_hr_platform.Employees;
 
-public class CreateUpdateEmployeeDto
+public class CreateUpdateEmployeeDto : EntityDto
 {
     [Required]
     [StringLength(128)]
