@@ -4,6 +4,20 @@
     "AppName": "saas_hr_platform",
     "Menu:Home": "Home",
     "Welcome": "Welcome",
-    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io."
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+
+    "SaasHrPlatform:Employee.InvalidFirstName": "The first name entered is not valid.",
+    "SaasHrPlatform:Employee.InvalidLastName": "The last name entered is not valid.",
+    "SaasHrPlatform:Employee.InvalidEmail": "The email address entered is not valid.",
+    "SaasHrPlatform:Employee.InvalidHireDate": "The hire date entered is not valid.",
+    "SaasHrPlatform:Employee.InvalidJobTitle": "The job title entered is not valid.",
+    "SaasHrPlatform:Employee.InvalidDepartment": "Assigning a department to the employee is required.",
+    "SaasHrPlatform:Employee.NotFound": "The requested employee was not found.",
+    "SaasHrPlatform:Employee.DuplicateName": "An employee with the same first and last name already exists.",
+
+    "SaasHrPlatform:Department.InvalidName": "The name entered is not valid.",
+    "SaasHrPlatform:Department.InvalidDescription": "The description entered is not valid.",
+    "SaasHrPlatform:Department.DuplicateName": "A department with the same name already exists.",
+    "SaasHrPlatform:Department.NotFound": "The requested department was not found."
   }
 }

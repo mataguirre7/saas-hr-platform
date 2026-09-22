@@ -24,5 +24,6 @@ public static class saas_hr_platformDomainErrorCodes
         public const string InvalidName = _entity + "InvalidName";
         public const string InvalidDescription = _entity + "InvalidDescription";
         public const string DuplicateName = _entity + "DuplicateName";
+        public const string NotFound = _entity + "NotFound";
     }
 }

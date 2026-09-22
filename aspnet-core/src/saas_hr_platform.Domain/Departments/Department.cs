@@ -16,7 +16,7 @@ public class Department : FullAuditedAggregateRootTenant<Guid>
 
     internal Department(
         string name,
-        string description)
+        string? description)
     {
         SetName(name);
         SetDescription(description);

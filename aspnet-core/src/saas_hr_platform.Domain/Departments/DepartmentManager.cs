@@ -15,7 +15,7 @@ public class DepartmentManager : DomainService
         _departmentRepository = departmentRepository;
     }
 
-    public async Task<Department> CreateAsync(string name, string description)
+    public async Task<Department> CreateAsync(string name, string? description)
     {
         var queryable = await _departmentRepository.GetQueryableAsync();
         var nameExists = await AsyncExecuter.AnyAsync(queryable, d => d.Name == name);
