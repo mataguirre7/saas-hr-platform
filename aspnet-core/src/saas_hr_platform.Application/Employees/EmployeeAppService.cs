@@ -1,11 +1,11 @@
-using saas_hr_platform;
 using saas_hr_platform.Departments;
-using saas_hr_platform.Employees;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
+
+namespace saas_hr_platform.Employees;
 
 public class EmployeeAppService : saas_hr_platformAppService, IEmployeeAppService
 {
@@ -30,7 +30,8 @@ public class EmployeeAppService : saas_hr_platformAppService, IEmployeeAppServic
         var employees = await _employeeRepository.GetPagedListAsync(
             input.SkipCount,
             input.MaxResultCount,
-            input.Sorting ?? nameof(Employee.LastName));
+            input.Sorting ?? nameof(Employee.LastName),
+            includeDetails: true);
 
         return new PagedResultDto<EmployeeDto>(
             totalCount,

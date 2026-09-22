@@ -12,8 +12,7 @@
     "SaasHrPlatform:Employee.InvalidHireDate": "The hire date entered is not valid.",
     "SaasHrPlatform:Employee.InvalidJobTitle": "The job title entered is not valid.",
     "SaasHrPlatform:Employee.InvalidDepartment": "Assigning a department to the employee is required.",
-    "SaasHrPlatform:Employee.DuplicateName": "An employee with the same first and last name already exists.",
-    "SaasHrPlatform:Employee.DuplicateEmail": "An employee with the same first and last name already exists.",
+    "SaasHrPlatform:Employee.DuplicateEmail": "An employee with the same email already exists.",
     "SaasHrPlatform:Employee.NotFound": "The requested employee was not found.",
 
     "SaasHrPlatform:Department.InvalidName": "The name entered is not valid.",

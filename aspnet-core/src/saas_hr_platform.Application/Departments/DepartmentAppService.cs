@@ -1,11 +1,10 @@
-using saas_hr_platform;
-using saas_hr_platform.Departments;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
-using Volo.Abp.Domain.Repositories;
+
+namespace saas_hr_platform.Departments;
 
 public class DepartmentAppService : saas_hr_platformAppService, IDepartmentAppService
 {
