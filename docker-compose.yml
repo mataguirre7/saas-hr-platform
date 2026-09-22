@@ -29,6 +29,7 @@ services:
       App__SelfUrl: "http://localhost:4200"
       App__ClientUrl: "http://localhost:4200"
       App__CorsOrigins: "http://localhost:4200"
+      App__DisableHttpsRequirement: "true"
     ports:
       - "8080:8080"
     depends_on:
