@@ -1,6 +1,7 @@
 import { Environment } from '@abp/ng.core';
 
 const baseUrl = 'http://localhost:4200';
+const backendUrl = 'http://localhost:8080';
 
 export const environment = {
   production: false,
@@ -10,7 +11,7 @@ export const environment = {
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: baseUrl + '/',
+    issuer: backendUrl + '/',
     redirectUri: baseUrl,
     postLogoutRedirectUri: baseUrl,
     clientId: 'saas_hr_platform_App',
@@ -20,7 +21,7 @@ export const environment = {
   },
   apis: {
     default: {
-      url: '',
+      url: backendUrl,
       rootNamespace: 'saas_hr_platform',
     },
   },

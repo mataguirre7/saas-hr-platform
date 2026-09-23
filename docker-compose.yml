@@ -26,7 +26,7 @@ services:
       dockerfile: src/saas_hr_platform.HttpApi.Host/Dockerfile
     environment:
       ConnectionStrings__Default: "Host=db;Port=5432;Database=saas-hr-platform;User Id=postgres;Password=123qwe"
-      App__SelfUrl: "http://localhost:4200"
+      App__SelfUrl: "http://localhost:8080"
       App__ClientUrl: "http://localhost:4200"
       App__CorsOrigins: "http://localhost:4200"
       App__DisableHttpsRequirement: "true"
