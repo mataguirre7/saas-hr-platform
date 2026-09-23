@@ -11,6 +11,7 @@ import { CreateUpdateEmployeeDto, EmployeeDto } from '../../proxy/employees/mode
 import { EmployeeStatus, employeeStatusOptions } from '../../proxy/employees/employee-status.enum';
 import { DepartmentService } from '../../proxy/department.service';
 import { DepartmentDto } from '../../proxy/departments/models';
+import { getEmployeeStatusLabel } from '../employees.utils';
 
 @Component({
   selector: 'app-employee-form',
@@ -74,17 +75,8 @@ export class EmployeeFormComponent implements OnInit, OnChanges {
     this.visibleChange.emit(false);
   }
 
-  statusLabel(data?: any): string {
-    switch (data.value) {
-      case 1:
-        return "Active";
-      case 2:
-        return "On Leave";
-      case 3:
-        return "Terminated";
-      default:
-        return "Unknown";
-    }
+  statusLabel(status?: EmployeeStatus): string {
+    return getEmployeeStatusLabel(status);
   }
 
   submit(): void {

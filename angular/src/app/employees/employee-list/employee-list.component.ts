@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { EmployeeService } from '../../proxy/employee.service';
 import { EmployeeDto } from '../../proxy/employees/models';
-import { employeeStatusOptions } from '../../proxy/employees/employee-status.enum';
+import { EmployeeStatus, employeeStatusOptions } from '../../proxy/employees/employee-status.enum';
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 import { ConfirmationService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { getEmployeeStatusLabel } from '../employees.utils';
 
 @Component({
   selector: 'app-employee-list',
@@ -42,17 +43,8 @@ export class EmployeeListComponent implements OnInit {
       });
   }
 
-  statusLabel(status?: number): string {
-    switch (status) {
-      case 1:
-        return "Active";
-      case 2:
-        return "On Leave";
-      case 3:
-        return "Terminated";
-      default:
-        return "Unknown";
-    }
+  statusLabel(status?: EmployeeStatus): string {
+    return getEmployeeStatusLabel(status);
   }
 
   openCreate(): void {

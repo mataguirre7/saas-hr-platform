@@ -27,7 +27,7 @@ function configureRoutes(routesService: RoutesService) {
         name: 'Employees',
         iconClass: 'fas fa-users',
         order: 3,
-        layout: eLayoutType.application,
+        layout: eLayoutType.application
       },
     ]);
   };
