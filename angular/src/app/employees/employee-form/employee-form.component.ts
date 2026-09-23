@@ -74,6 +74,19 @@ export class EmployeeFormComponent implements OnInit, OnChanges {
     this.visibleChange.emit(false);
   }
 
+  statusLabel(data?: any): string {
+    switch (data.value) {
+      case 1:
+        return "Active";
+      case 2:
+        return "On Leave";
+      case 3:
+        return "Terminated";
+      default:
+        return "Unknown";
+    }
+  }
+
   submit(): void {
     if (this.form.invalid) {
       this.form.markAllAsTouched();

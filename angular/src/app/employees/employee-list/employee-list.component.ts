@@ -43,7 +43,16 @@ export class EmployeeListComponent implements OnInit {
   }
 
   statusLabel(status?: number): string {
-    return employeeStatusOptions.find(o => o.value === status)?.key ?? '';
+    switch (status) {
+      case 1:
+        return "Active";
+      case 2:
+        return "On Leave";
+      case 3:
+        return "Terminated";
+      default:
+        return "Unknown";
+    }
   }
 
   openCreate(): void {
