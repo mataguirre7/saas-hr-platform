@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from '@abp/ng.core';
 
 export const appRoutes: Routes = [
   {
@@ -27,10 +28,12 @@ export const appRoutes: Routes = [
   {
     path: 'departments',
     loadChildren: () =>
-      import("./departments/departments.routes").then(m => m.departmentsRoutes)
+      import("./departments/departments.routes").then(m => m.departmentsRoutes),
+    canActivate: [authGuard]
   },
   {
     path: 'employees',
     loadChildren: () => import('./employees/employees.routes').then(m => m.employeesRoutes),
+    canActivate: [authGuard]
   },
 ];
