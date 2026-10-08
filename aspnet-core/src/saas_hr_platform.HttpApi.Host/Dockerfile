@@ -9,7 +9,6 @@ RUN apt-get update \
     && npm install -g yarn \
     && rm -rf /var/lib/apt/lists/*
 
-# ABP CLI (provides `abp install-libs`)
 RUN dotnet tool install -g Volo.Abp.Studio.Cli
 ENV PATH="${PATH}:/root/.dotnet/tools"
 
