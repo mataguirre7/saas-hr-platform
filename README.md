@@ -1,4 +1,4 @@
-# SaaS HR Platform
+# SaaS Hr Platform
 
 Multi-tenant HR management platform built with **ABP Framework** (.NET) and **Angular**. Portfolio project — manages departments and employees within a B2B SaaS architecture, with real OAuth authentication, domain events, and a scheduled worker.
 
